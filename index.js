@@ -1,4 +1,5 @@
 'use strict'
+var sleep = require('sleep');
 
 const assert = require('assert')
 const azure = require('azure-storage')
@@ -61,8 +62,8 @@ function copy (options) {
       const stream = new RetryStream(createBlobStream.bind(null, file.name), {
         delay: 1000
       })
-
-      s3.upload({ Key: file.name, Body: stream }, callback)
+      console.log('nome do arquivo',file.name)
+      s3.upload({ Key: file.name, Body: stream , ContentType: file.contentSettings.contentType, ACL: 'public-read'}, callback)
     })
   }
 
@@ -70,3 +71,15 @@ function copy (options) {
     return blob.createReadStream(options.azure.container, filename)
   }
 }
+
+copy({
+  azure: {
+    connection: 'DefaultEndpointsProtocol=https;AccountName=probonostorage;AccountKey=itReBVOwF89w1FhBQsvCx71j1B25spqNESZv1JW4nO8o974TPTCA2kPbyKN4CNg6wV97u1rCQG//Gof4FgpyFQ==;EndpointSuffix=core.windows.net',
+    container: 'uploads'
+  },
+  aws: {
+    region: 'sa-east-1',
+    bucket: 'probonodigital'
+  }
+})
+

@@ -46,6 +46,7 @@
     "ora": "~4.0.0",
     "queue": "~6.0.0",
     "retry-stream-proxy": "~0.2.2",
+    "sleep": "^6.1.0",
     "throttled-transform-stream": "~1.0.0",
     "through2": "~3.0.0"
   }
