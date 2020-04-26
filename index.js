@@ -74,12 +74,12 @@ function copy (options) {
 
 copy({
   azure: {
-    connection: 'DefaultEndpointsProtocol=https;AccountName=probonostorage;AccountKey=itReBVOwF89w1FhBQsvCx71j1B25spqNESZv1JW4nO8o974TPTCA2kPbyKN4CNg6wV97u1rCQG//Gof4FgpyFQ==;EndpointSuffix=core.windows.net',
-    container: 'uploads'
+    connection: '..',
+    container: '..'
   },
   aws: {
-    region: 'sa-east-1',
-    bucket: 'probonodigital'
+    region: '...',
+    bucket: '...'
   }
 })
 
